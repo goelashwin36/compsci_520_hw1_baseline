@@ -40,5 +40,4 @@ public class Transaction {
     SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm");  
     return sdf.format(new Date());
   }
-
 }

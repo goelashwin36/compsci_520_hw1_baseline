@@ -1,3 +1,4 @@
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -33,11 +34,21 @@ public class ExpenseTrackerApp {
 
         // Call controller to add transaction
         view.addTransaction(t);
-      } else {
+      } else if (!InputValidation.validateAmount(amount)) {
+        JOptionPane.showMessageDialog(view,
+            "Amount should be greater than 0 and less than 1000.",
+            "Input Error",
+            JOptionPane.ERROR_MESSAGE);
+
+        System.out.println("Invalid input!!");
+      } else if (!InputValidation.validateCategory(category)) {
+        JOptionPane.showMessageDialog(view,
+            "Category should be one of these: food, travel, bills, entertainment, other",
+            "Input Error",
+            JOptionPane.ERROR_MESSAGE);
+
         System.out.println("Invalid input!!");
       }
     });
-
   }
-
 }
